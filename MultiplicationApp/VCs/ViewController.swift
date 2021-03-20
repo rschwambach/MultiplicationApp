@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         return button
     }()
     
-    var delegate: NumberDelegate?
+    //MARK: viewDidLoad
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +59,7 @@ class ViewController: UIViewController {
         
     }
     
+    //MARK: Functions
     
     private func setUpLayout() {
 
@@ -86,15 +87,19 @@ class ViewController: UIViewController {
     @objc func buttonCheckClicked() {
         if textField.text?.isEmpty == false {
            let inputedNumber = Int(textField.text!)
-            delegate?.didSendNumber(number: inputedNumber!)
             openSecondView()
-            Functions.cleanField(whichTextField: textField)
+            Function.cleanField(whichTextField: textField)
         }
     }
     
+    // Function to go to the secondVC
+    
      func openSecondView() {
-        let controller = SecondVC()
-        present(controller, animated: true, completion: nil)
+        let rootVC = SecondVC()
+        let navVC = UINavigationController(rootViewController: rootVC)
+        //navVC.modalPresentationStyle = .fullScreen
+        navVC.setNavigationBarHidden(true, animated: false)
+        present(navVC, animated: true, completion: nil)
     }
     
 

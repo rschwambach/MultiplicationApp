@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Functions {
+class Function {
     
      static func cleanField(whichTextField: UITextField) {
         whichTextField.text = ""
