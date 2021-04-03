@@ -106,7 +106,7 @@ class SecondVC: UIViewController {
     //MARK: Aux Variables
     
     var multiplyResults: [Int] = []
-    var numbergot = 5
+    var numbergot = 0
     var valueTimes = 1
     
     //MARK: viewDidLoad
@@ -166,16 +166,16 @@ class SecondVC: UIViewController {
     // Function to show in app the result of the multiplications
     
     func printResult() {
-        labelResultOne.text   = "  1 X \(numbergot) = \(multiplyResults[0])"
-        labelResultTwo.text   = "  2 X \(numbergot) = \(multiplyResults[1])"
-        labelResultThree.text = "  3 X \(numbergot) = \(multiplyResults[2])"
-        labelResultFour.text  = "  4 X \(numbergot) = \(multiplyResults[3])"
-        labelResultFive.text  = "  5 X \(numbergot) = \(multiplyResults[4])"
-        labelResultSix.text   = "  6 X \(numbergot) = \(multiplyResults[5])"
-        labelResultSeven.text = "  7 X \(numbergot) = \(multiplyResults[6])"
-        labelResultEight.text = "  8 X \(numbergot) = \(multiplyResults[7])"
-        labelResultNine.text  = "  9 X \(numbergot) = \(multiplyResults[8])"
-        labelResultTen.text   = "10 X \(numbergot) = \(multiplyResults[9])"
+        labelResultOne.text   = "  1 X \(FormatNumber(value: numbergot)) = \(FormatNumber(value: multiplyResults[0]))"
+        labelResultTwo.text   = "  2 X \(FormatNumber(value: numbergot)) = \(FormatNumber(value: multiplyResults[1]))"
+        labelResultThree.text = "  3 X \(FormatNumber(value: numbergot)) = \(FormatNumber(value: multiplyResults[2]))"
+        labelResultFour.text  = "  4 X \(FormatNumber(value: numbergot)) = \(FormatNumber(value: multiplyResults[3]))"
+        labelResultFive.text  = "  5 X \(FormatNumber(value: numbergot)) = \(FormatNumber(value: multiplyResults[4]))"
+        labelResultSix.text   = "  6 X \(FormatNumber(value: numbergot)) = \(FormatNumber(value: multiplyResults[5]))"
+        labelResultSeven.text = "  7 X \(FormatNumber(value: numbergot)) = \(FormatNumber(value: multiplyResults[6]))"
+        labelResultEight.text = "  8 X \(FormatNumber(value: numbergot)) = \(FormatNumber(value: multiplyResults[7]))"
+        labelResultNine.text  = "  9 X \(FormatNumber(value: numbergot)) = \(FormatNumber(value: multiplyResults[8]))"
+        labelResultTen.text   = "10 X \(FormatNumber(value: numbergot)) = \(FormatNumber(value: multiplyResults[9]))"
     }
     
 }

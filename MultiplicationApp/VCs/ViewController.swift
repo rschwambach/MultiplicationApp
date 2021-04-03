@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Creation of the UI
     
@@ -49,6 +49,10 @@ class ViewController: UIViewController {
         return button
     }()
     
+    //MARK: Aux Variables
+    
+    var inputedNumber = 0
+    
     //MARK: viewDidLoad
 
     override func viewDidLoad() {
@@ -56,6 +60,7 @@ class ViewController: UIViewController {
         
         view.backgroundColor = Color.whiteSmoke
         setUpLayout()
+        textField.delegate = self
         
     }
     
@@ -86,7 +91,7 @@ class ViewController: UIViewController {
     
     @objc func buttonCheckClicked() {
         if textField.text?.isEmpty == false {
-           let inputedNumber = Int(textField.text!)
+            inputedNumber = Int(textField.text!)!
             openSecondView()
             Function.cleanField(whichTextField: textField)
         }
@@ -97,12 +102,23 @@ class ViewController: UIViewController {
      func openSecondView() {
         let rootVC = SecondVC()
         let navVC = UINavigationController(rootViewController: rootVC)
+        rootVC.numbergot = inputedNumber
         //navVC.modalPresentationStyle = .fullScreen
         navVC.setNavigationBarHidden(true, animated: false)
         present(navVC, animated: true, completion: nil)
     }
     
-
+    // Function to limit number of characters of a textfield
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        
+        let updateText = currentText.replacingCharacters(in: stringRange, with: string)
+        
+        return updateText.count < 6
+    }
+    
+    
 }
-
 
